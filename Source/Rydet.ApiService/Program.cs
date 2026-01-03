@@ -1,4 +1,4 @@
-using Namespace;
+using Rydet.ApiService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,8 +31,10 @@ app.MapGet("/weatherforecast", () =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.UtcNow.AddDays(index)),
+#pragma warning disable CA5394
             Random.Shared.Next(-20, 55),
             summaries[Random.Shared.Next(summaries.Length)]
+#pragma warning restore CA5394
         ))
         .ToArray();
     return forecast;

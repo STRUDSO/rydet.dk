@@ -27,4 +27,5 @@ dotnet_diagnostic.S3776.severity = warning
 
 # this is a webapp
 dotnet_diagnostic.MA0004.severity = none
+dotnet_diagnostic.CA2007.severity = none
 

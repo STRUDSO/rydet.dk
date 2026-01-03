@@ -10,7 +10,8 @@ public class WebTests
     public async Task GetWebResourceRootReturnsOkStatusCode()
     {
         // Arrange
-        var cancellationToken = new CancellationTokenSource(DefaultTimeout).Token;
+        using var cancellationTokenSource = new CancellationTokenSource(DefaultTimeout);
+        var cancellationToken = cancellationTokenSource.Token;
 
         var appHost = await DistributedApplicationTestingBuilder.CreateAsync<Projects.Rydet_AppHost>(cancellationToken);
         appHost.Services.AddLogging(logging =>
@@ -30,9 +31,9 @@ public class WebTests
         await app.StartAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
 
         // Act
-        var httpClient = app.CreateHttpClient("apiservice");
+        using var httpClient = app.CreateHttpClient("apiservice");
         await app.ResourceNotifications.WaitForResourceHealthyAsync("apiservice", cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
-        var response = await httpClient.GetAsync("/", cancellationToken);
+        using var response = await httpClient.GetAsync(new Uri("/", UriKind.Relative), cancellationToken);
 
         // Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
