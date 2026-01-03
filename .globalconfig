@@ -24,3 +24,7 @@ dotnet_diagnostic.CA1508.severity = suggestion
 
 # Cognitive Complexity of methods (S3776) (Need SonarAnalyzers: https://github.com/SonarSource/sonar-dotnet)
 dotnet_diagnostic.S3776.severity = warning
+
+# this is a webapp
+dotnet_diagnostic.MA0004.severity = none
+
