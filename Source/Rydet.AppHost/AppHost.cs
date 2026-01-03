@@ -1,4 +1,4 @@
-#pragma warning disable MA0048
+﻿#pragma warning disable MA0048
 var builder = DistributedApplication.CreateBuilder(args);
 #pragma warning restore MA0048
 

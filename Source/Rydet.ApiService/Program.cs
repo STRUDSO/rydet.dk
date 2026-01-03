@@ -1,4 +1,4 @@
-using Rydet.ApiService;
+﻿using Rydet.ApiService;
 
 var builder = WebApplication.CreateBuilder(args);
 

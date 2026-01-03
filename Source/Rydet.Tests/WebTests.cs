@@ -1,13 +1,13 @@
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace Rydet.Tests;
 
-public class WebTests
+public sealed class WebTests
 {
     private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
 
     [Fact]
-    public async Task GetWebResourceRootReturnsOkStatusCode()
+    public async Task GetWebResourceRootReturnsOkStatusCodeAsync()
     {
         // Arrange
         using var cancellationTokenSource = new CancellationTokenSource(DefaultTimeout);

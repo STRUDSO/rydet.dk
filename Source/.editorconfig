@@ -1,0 +1,9 @@
+
+[*.{cs,vb}]
+# # Static fields are camelCase and start with s_
+# dotnet_naming_rule.static_fields_should_be_camel_case.severity = warning
+# dotnet_naming_rule.static_fields_should_be_camel_case.symbols = static_fields
+# dotnet_naming_rule.static_fields_should_be_camel_case.style = non_private_static_field_style
+
+# Consider making public types internal
+dotnet_diagnostic.CA1515.severity = none
