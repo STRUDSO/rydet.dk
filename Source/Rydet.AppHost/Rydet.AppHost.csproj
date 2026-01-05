@@ -12,4 +12,8 @@
     <ProjectReference Include="..\Rydet.ApiService\Rydet.ApiService.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+  </ItemGroup>
+
 </Project>

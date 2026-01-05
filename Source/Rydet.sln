@@ -8,7 +8,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rydet.ServiceDefaults", "Ry
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rydet.ApiService", "Rydet.ApiService\Rydet.ApiService.csproj", "{865218AF-7BF1-4FC0-9C48-DE2E7DE9BB52}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rydet.Tests", "Rydet.Tests\Rydet.Tests.csproj", "{36C69636-1C39-4A08-8B1A-5EEC1664C05F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rydet.IOBased.Tests", "Rydet.IOBased.Tests\Rydet.IOBased.Tests.csproj", "{36C69636-1C39-4A08-8B1A-5EEC1664C05F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

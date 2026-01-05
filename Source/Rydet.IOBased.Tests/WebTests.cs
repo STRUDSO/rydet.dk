@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
+using Xunit.Abstractions;
 
-namespace Rydet.Tests;
+namespace Rydet.IOBased.Tests;
 
-public sealed class WebTests
+public sealed class WebTests(ITestOutputHelper helper)
 {
     private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
 
@@ -21,7 +22,12 @@ public sealed class WebTests
             logging.AddFilter(appHost.Environment.ApplicationName, LogLevel.Debug);
             logging.AddFilter("Aspire.", LogLevel.Debug);
             // To output logs to the xUnit.net ITestOutputHelper, consider adding a package from https://www.nuget.org/packages?q=xunit+logging
+            logging.AddProvider(new XunitLogProvider(helper, l => $"""
+                                                                     {l.LogLevel}: {l.CategoryName}[{l.EventId}]
+                                                                           {l.FormattedString}
+                                                                     """));
         });
+
         appHost.Services.ConfigureHttpClientDefaults(clientBuilder =>
         {
             clientBuilder.AddStandardResilienceHandler();

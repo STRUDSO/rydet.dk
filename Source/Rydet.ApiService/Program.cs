@@ -11,6 +11,8 @@ builder.Services.AddProblemDetails();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.AddNpgsqlDataSource(connectionName: "postgresdb");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
