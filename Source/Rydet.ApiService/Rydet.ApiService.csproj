@@ -10,5 +10,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
     <PackageReference Include="Aspire.Npgsql" />
+    <PackageReference Include="OpenFeature.Contrib.Providers.Flagd" />
   </ItemGroup>
 </Project>

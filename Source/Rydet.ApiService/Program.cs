@@ -1,4 +1,5 @@
-﻿using Rydet.ApiService;
+﻿using OpenFeature.Contrib.Providers.Flagd;
+using Rydet.ApiService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
 
 builder.AddNpgsqlDataSource(connectionName: "postgresdb");
+
+await FeatureFlagsAsync(builder);
 
 var app = builder.Build();
 
@@ -27,22 +30,17 @@ string[] summaries = ["Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "
 
 app.MapGet("/", () => "API service is running. Navigate to /weatherforecast to see sample data.");
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.UtcNow.AddDays(index)),
-#pragma warning disable CA5394
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-#pragma warning restore CA5394
-        ))
-        .ToArray();
-    return forecast;
-})
+app.MapGet("/weatherforecast", async () => await Weather.ForecastsAsync(summaries))
 .WithName("GetWeatherForecast");
 
 app.MapDefaultEndpoints();
 
 await app.RunAsync();
+
+async Task FeatureFlagsAsync(WebApplicationBuilder webApplicationBuilder)
+{
+    var connectionString = webApplicationBuilder.Configuration.GetConnectionString("flagd");
+
+    await OpenFeature.Api.Instance.SetProviderAsync(
+        new FlagdProvider(new Uri(connectionString!)));
+}
