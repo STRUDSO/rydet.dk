@@ -38,7 +38,7 @@ public class DBTests1
     }
 
     [Fact]
-    public async Task METHOD()
+    public async Task MethodAsync()
     {
         var openConnectionAsync = await _fixture.OpenConnectionAsync();
         var dbCommand = openConnectionAsync.CreateCommand();
@@ -61,7 +61,7 @@ public class DBTests2
     }
 
     [Fact]
-    public async Task METHOD()
+    public async Task MethodAsync()
     {
         var openConnectionAsync = await _fixture.OpenConnectionAsync();
         var dbCommand = openConnectionAsync.CreateCommand();
