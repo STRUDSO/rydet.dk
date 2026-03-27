@@ -15,6 +15,11 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
 
+    - name: Install SSL Certificates
+      run: |
+        dotnet dev-certs https --trust || true
+        echo "SSL_CERT_DIR=$HOME/.aspnet/dev-certs/trust:/usr/lib/ssl/certs" >> $GITHUB_ENV
+
     - name: Restore dependencies
       run: dotnet restore
       
