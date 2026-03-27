@@ -44,11 +44,12 @@ public class DBTests1
         var dbCommand = openConnectionAsync.CreateCommand();
         dbCommand.CommandText = "SELECT 1";
         var executeScalar = await dbCommand.ExecuteScalarAsync();
-        
+
         Assert.Equal(1, executeScalar);
     }
 
-}[Collection("Database collection")]
+}
+[Collection("Database collection")]
 [SuppressMessage("Design", "MA0048:File name must match type name")]
 public class DBTests2
 {
@@ -66,8 +67,8 @@ public class DBTests2
         var dbCommand = openConnectionAsync.CreateCommand();
         dbCommand.CommandText = "SELECT 1";
         var executeScalar = await dbCommand.ExecuteScalarAsync();
-        
+
         Assert.Equal(1, executeScalar);
     }
-    
+
 }

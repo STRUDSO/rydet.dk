@@ -8,7 +8,7 @@ namespace Rydet.IOBased.Tests;
 [SuppressMessage("Design", "CA1034:Nested types should not be visible")]
 public sealed class XunitLogProvider : ILoggerProvider
 {
-    
+
     private readonly ITestOutputHelper _helper;
     private readonly Func<SimpleLogEntry, string> _message;
 
