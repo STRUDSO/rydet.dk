@@ -23,7 +23,7 @@
     <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="13.1.0" />
     <PackageVersion Include="Aspire.Npgsql" Version="13.1.0" />
     <PackageVersion Include="Aspire.Hosting.Docker" Version="13.1.0-preview.1.25616.3" />
-    <PackageVersion Include="CommunityToolkit.Aspire.Hosting.Flagd" Version="13.0.1-beta.468" />
+    <PackageVersion Include="CommunityToolkit.Aspire.Hosting.Flagd" Version="13.1.1" />
   </ItemGroup>
   <ItemGroup>
     <PackageVersion Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="3.12.0-beta1.25218.8">
